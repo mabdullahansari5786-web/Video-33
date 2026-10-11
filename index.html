@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <title>Multicolored Nav Bar</title>
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background: gray; */
+            background: var(--page-bg);
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            display: flex;
+
+        }
+
+        nav {
+            display: inline-block;
+            background: var(--nav-bg);
+            margin: 50px;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: larger;
+            box-shadow: 20px 18px 35px rgb(0 0 0 / 61%);
+
+            max-width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            text-transform: uppercase;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            display: block;
+            position: relative;
+            padding: 12px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 20px;
+            font-weight: 500;
+            transition: .35s ease;
+            overflow: hidden;
+        }
+
+        nav a:hover {
+            color: var(--hover-text);
+            transform: translateY(-5px);
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            z-index: -1;
+            transition: .35s;
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+        }
+
+
+        :root {
+            --page-bg: #232323;
+            --nav-bg: #2b2b2b;
+            --text-color: #ececec;
+            --hover-text: #ffffff;
+            --primary-color: #ff4b4b;
+            --secondary-color: #8b2cff;
+
+        }
+
+
+        
+        /* Tablet screens */
+        @media only screen and (min-width: 481px) and (max-width: 1000px) {
+
+            body {
+                min-height: 100vh;
+                height: auto;
+                align-items: flex-start;
+                padding: 0 20px;
+                box-sizing: border-box;
+                background: #8b8686;
+            }
+
+            nav {
+                width: 100%;
+                max-width: 700px;
+                margin: 30px auto;
+                padding: 12px;
+                box-sizing: border-box;
+                border-radius: 30px;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+            }
+
+            nav li {
+                min-width: 0;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 10px 14px;
+            }
+
+            nav a:hover {
+                font-size: 16px;
+                transform: translateY(-3px);
+            }
+        }
+
+
+
+        /* Mobile screens */
+        @media only screen and (max-width: 480px) {
+
+            body {
+                width: 100%;
+                min-height: 100vh;
+                box-sizing: border-box;
+                justify-content: center;
+                align-items: flex-start;
+                padding: 0 10px;
+                background: #808080;
+            }
+
+            nav {
+                width: 100%;
+                max-width: 100%;
+                margin: 20px 0;
+                padding: 10px;
+                box-sizing: border-box;
+                border-radius: 20px;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+                width: 100%;
+            }
+
+            nav li {
+                width: 100%;
+                min-width: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 15px;
+                padding: 10px;
+                text-align: center;
+            }
+
+            nav a:hover {
+                font-size: 15px;
+                transform: translateY(-2px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- # Task: Create a Multicolored Navbar Using CSS Variables
+
+    ### Task Description
+    Design and develop a **multicolored navigation bar using HTML and CSS**. The navbar should use **CSS Variables** so
+    that its colors can be changed easily without modifying the main styling rules.
+
+    ### Clear Task Requirements
+
+    1. Create a responsive-style **navigation bar** using HTML and CSS.
+    2. Add at least **4–5 navigation links**, such as:
+    - Home
+    - About
+    - Services
+    - Projects
+    - Contact
+    3. Create a separate **CSS stylesheet** for the navbar.
+    4. Define the main navbar colors using **CSS Variables** inside `:root`.
+    5. Use these variables throughout the CSS instead of writing the same colors repeatedly.
+    6. The navbar should have:
+    - A background color
+    - Text/link colors
+    - A hover effect
+    - Proper spacing between links
+    7. Changing the value of a CSS Variable should automatically change the corresponding color throughout the navbar.
+    8. Use at least **3 different CSS Variables** for colors.
+    9. Keep the HTML structure clean and organized.
+    10. Do not use JavaScript. The complete navbar should be created using **HTML and CSS only**.
+
+    ### Expected Result
+
+    The final navbar should be **multicolored and customizable**. By changing the values of the CSS Variables, the
+    overall color scheme of the navbar should change easily.
+
+    ### Example
+
+    ```css
+    :root {
+    --primary-color: #264653;
+    --secondary-color: #2a9d8f;
+    --text-color: #ffffff;
+    }
+    ```
+
+    If the values of these variables are changed, the navbar colors should change automatically. -->
+
+
+    <!-- Create A Nav Bar Style This -->
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>
